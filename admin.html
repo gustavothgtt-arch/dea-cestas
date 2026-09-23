@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <title>Painel Administrativo | Déa Cestas</title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
+
+    <main
+        class="admin-login"
+        id="telaLogin"
+    >
+
+        <section class="login-card">
+
+            <div class="login-marca">
+
+                <img
+                    src="imagens/logo-dea-cestas.png"
+                    alt="Déa Cestas"
+                >
+
+                <span>
+                    Painel Administrativo
+                </span>
+
+                <h1>
+                    Déa Cestas
+                </h1>
+
+                <p>
+                    Entre com seus dados para gerenciar
+                    os produtos e pedidos da loja.
+                </p>
+
+            </div>
+
+
+            <form id="formLogin">
+
+                <div class="campo">
+
+                    <label for="loginEmail">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="loginSenha">
+                        Senha
+                    </label>
+
+                    <div class="campo-senha">
+
+                        <input
+                            type="password"
+                            id="loginSenha"
+                            placeholder="Digite sua senha"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="mostrarSenha"
+                            aria-label="Mostrar senha"
+                        >
+                            Ver
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="mensagem-form"
+                    id="mensagemLogin"
+                    hidden
+                >
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="admin-botao admin-botao-principal"
+                    id="botaoEntrar"
+                >
+                    Entrar
+                </button>
+
+            </form>
+
+
+            <a
+                href="index.html"
+                class="voltar-site"
+            >
+                ← Voltar para o site
+            </a>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         PAINEL
+    ====================================================== -->
+
+    <div
+        class="admin-painel"
+        id="telaPainel"
+        hidden
+    >
+
+        <!-- CABEÇALHO -->
+
+        <header class="admin-topo">
+
+            <div class="admin-topo-marca">
+
+                <img
+                    src="imagens/logo-dea-cestas.png"
+                    alt="Déa Cestas"
+                >
+
+                <div>
+
+                    <strong>
+                        Déa Cestas
+                    </strong>
+
+                    <span>
+                        Painel Administrativo
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-topo-acoes">
+
+                <span id="adminEmail">
+                </span>
+
+                <a
+                    href="index.html"
+                    target="_blank"
+                    class="admin-link-site"
+                >
+                    Ver loja
+                </a>
+
+                <button
+                    type="button"
+                    class="admin-botao-sair"
+                    id="botaoSair"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+
+        <main class="admin-conteudo">
+
+
+            <!-- NAVEGAÇÃO DO PAINEL -->
+            <nav class="admin-navegacao" aria-label="Seções do painel">
+                <button
+                    type="button"
+                    class="admin-navegacao-botao ativo"
+                    id="abaProdutos"
+                    data-admin-aba="produtos"
+                >
+                    Produtos
+                </button>
+
+                <button
+                    type="button"
+                    class="admin-navegacao-botao"
+                    id="abaPedidos"
+                    data-admin-aba="pedidos"
+                >
+                    Pedidos
+                    <span
+                        class="admin-navegacao-contador"
+                        id="contadorPedidosNovos"
+                        hidden
+                    >
+                        0
+                    </span>
+                </button>
+            </nav>
+
+
+            <!-- ÁREA DE PRODUTOS -->
+            <div id="areaProdutos">
+
+
+            <!-- TÍTULO -->
+
+            <div class="admin-cabecalho-pagina">
+
+                <div>
+
+                    <span>
+                        Catálogo
+                    </span>
+
+                    <h1>
+                        Produtos
+                    </h1>
+
+                    <p>
+                        Cadastre e gerencie os produtos
+                        exibidos na loja.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="admin-botao admin-botao-principal"
+                    id="botaoNovoProduto"
+                >
+                    + Novo produto
+                </button>
+
+            </div>
+
+
+
+            <!-- RESUMO -->
+
+            <section class="admin-resumo">
+
+                <article>
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="totalProdutos">
+                        0
+                    </strong>
+
+                    <p>
+                        produtos cadastrados
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span>
+                        Ativos
+                    </span>
+
+                    <strong id="totalAtivos">
+                        0
+                    </strong>
+
+                    <p>
+                        disponíveis na loja
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span>
+                        Inativos
+                    </span>
+
+                    <strong id="totalInativos">
+                        0
+                    </strong>
+
+                    <p>
+                        ocultos da loja
+                    </p>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- LISTAGEM -->
+
+            <section class="admin-listagem">
+
+                <div class="admin-listagem-topo">
+
+                    <div>
+
+                        <h2>
+                            Produtos cadastrados
+                        </h2>
+
+                        <p>
+                            Gerencie preço, informações
+                            e disponibilidade.
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-busca">
+
+                        <input
+                            type="search"
+                            id="buscaProdutoAdmin"
+                            placeholder="Buscar produto..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARREGANDO -->
+
+                <div
+                    class="admin-carregando"
+                    id="adminCarregando"
+                >
+                    Carregando produtos...
+                </div>
+
+
+                <!-- SEM PRODUTOS -->
+
+                <div
+                    class="admin-vazio"
+                    id="adminVazio"
+                    hidden
+                >
+
+                    <div>
+                        ✿
+                    </div>
+
+                    <h3>
+                        Nenhum produto cadastrado
+                    </h3>
+
+                    <p>
+                        Cadastre o primeiro produto
+                        da Déa Cestas.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="admin-botao admin-botao-principal"
+                        id="botaoPrimeiroProduto"
+                    >
+                        + Cadastrar produto
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUTOS -->
+
+                <div
+                    class="admin-produtos"
+                    id="listaProdutosAdmin"
+                >
+                </div>
+
+            </section>
+
+            </div>
+
+
+            <!-- =====================================================
+                 ÁREA DE PEDIDOS
+            ====================================================== -->
+            <div id="areaPedidos" hidden>
+
+                <div class="admin-cabecalho-pagina admin-cabecalho-pedidos">
+
+                    <div>
+                        <span>Atendimento</span>
+
+                        <h1>Pedidos</h1>
+
+                        <p>
+                            Acompanhe os pedidos recebidos pelo site
+                            e atualize cada etapa do atendimento.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="admin-botao admin-botao-secundario"
+                        id="botaoAtualizarPedidos"
+                    >
+                        Atualizar pedidos
+                    </button>
+
+                </div>
+
+
+                <section class="admin-resumo admin-resumo-pedidos">
+
+                    <article>
+                        <span>Novos</span>
+                        <strong id="totalPedidosNovos">0</strong>
+                        <p>aguardando atendimento</p>
+                    </article>
+
+                    <article>
+                        <span>Em andamento</span>
+                        <strong id="totalPedidosAndamento">0</strong>
+                        <p>em atendimento ou produção</p>
+                    </article>
+
+                    <article>
+                        <span>Finalizados</span>
+                        <strong id="totalPedidosFinalizados">0</strong>
+                        <p>pedidos concluídos</p>
+                    </article>
+
+                    <article>
+                        <span>Cancelados</span>
+                        <strong id="totalPedidosCancelados">0</strong>
+                        <p>pedidos cancelados</p>
+                    </article>
+
+                </section>
+
+
+                <section class="admin-listagem">
+
+                    <div class="admin-listagem-topo admin-listagem-topo-pedidos">
+
+                        <div>
+                            <h2>Pedidos recebidos</h2>
+
+                            <p>
+                                Consulte os detalhes, altere o status
+                                ou exclua um pedido.
+                            </p>
+                        </div>
+
+
+                        <div class="admin-filtros-pedidos">
+
+                            <input
+                                type="search"
+                                id="buscaPedidoAdmin"
+                                placeholder="Buscar pedido, cliente ou telefone..."
+                            >
+
+                            <select
+                                id="filtroStatusPedido"
+                                aria-label="Filtrar pedidos por status"
+                            >
+                                <option value="">Todos os status</option>
+                                <option value="novo">Novo</option>
+                                <option value="em_atendimento">Em atendimento</option>
+                                <option value="confirmado">Confirmado</option>
+                                <option value="em_producao">Em produção</option>
+                                <option value="pronto">Pronto</option>
+                                <option value="finalizado">Finalizado</option>
+                                <option value="cancelado">Cancelado</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="admin-carregando"
+                        id="pedidosCarregando"
+                        hidden
+                    >
+                        Carregando pedidos...
+                    </div>
+
+
+                    <div
+                        class="admin-vazio"
+                        id="pedidosVazio"
+                        hidden
+                    >
+                        <div>♡</div>
+
+                        <h3>Nenhum pedido encontrado</h3>
+
+                        <p>
+                            Quando um cliente finalizar um pedido
+                            pelo site, ele aparecerá aqui.
+                        </p>
+                    </div>
+
+
+                    <div
+                        class="admin-pedidos"
+                        id="listaPedidosAdmin"
+                    >
+                    </div>
+
+                </section>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL DE PEDIDO
+    ====================================================== -->
+
+    <div
+        class="admin-modal admin-modal-pedido"
+        id="modalPedido"
+        hidden
+    >
+
+        <div
+            class="admin-modal-fundo"
+            id="fecharModalPedidoFundo"
+        >
+        </div>
+
+
+        <section class="admin-modal-card admin-modal-pedido-card">
+
+            <header class="admin-modal-topo">
+
+                <div>
+                    <span>Pedido</span>
+
+                    <h2 id="pedidoModalNumero">
+                        Detalhes do pedido
+                    </h2>
+                </div>
+
+
+                <button
+                    type="button"
+                    class="admin-modal-fechar"
+                    id="botaoFecharPedido"
+                    aria-label="Fechar"
+                >
+                    ✕
+                </button>
+
+            </header>
+
+
+            <div class="admin-pedido-detalhes">
+
+                <div class="admin-pedido-cliente-grid">
+
+                    <div>
+                        <span>Cliente</span>
+                        <strong id="pedidoModalCliente">—</strong>
+                    </div>
+
+                    <div>
+                        <span>WhatsApp</span>
+                        <strong id="pedidoModalTelefone">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Data do pedido</span>
+                        <strong id="pedidoModalData">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Total</span>
+                        <strong id="pedidoModalTotal">R$ 0,00</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="campo admin-pedido-status-campo">
+
+                    <label for="pedidoModalStatus">
+                        Status do pedido
+                    </label>
+
+                    <select id="pedidoModalStatus">
+                        <option value="novo">Novo</option>
+                        <option value="em_atendimento">Em atendimento</option>
+                        <option value="confirmado">Confirmado</option>
+                        <option value="em_producao">Em produção</option>
+                        <option value="pronto">Pronto</option>
+                        <option value="finalizado">Finalizado</option>
+                        <option value="cancelado">Cancelado</option>
+                    </select>
+
+                </div>
+
+
+                <div class="admin-pedido-observacoes">
+
+                    <span>Observações</span>
+
+                    <p id="pedidoModalObservacoes">
+                        Nenhuma observação.
+                    </p>
+
+                </div>
+
+
+                <div class="admin-pedido-itens-area">
+
+                    <div class="admin-pedido-itens-titulo">
+                        <h3>Itens do pedido</h3>
+                    </div>
+
+                    <div
+                        class="admin-pedido-itens"
+                        id="pedidoModalItens"
+                    >
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="mensagem-form"
+                    id="mensagemPedido"
+                    hidden
+                >
+                </div>
+
+
+                <div class="admin-modal-acoes admin-pedido-modal-acoes">
+
+                    <button
+                        type="button"
+                        class="admin-botao admin-botao-perigo"
+                        id="botaoExcluirPedido"
+                    >
+                        Excluir pedido
+                    </button>
+
+                    <button
+                        type="button"
+                        class="admin-botao admin-botao-principal"
+                        id="botaoSalvarStatusPedido"
+                    >
+                        Salvar status
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL DE PRODUTO
+    ====================================================== -->
+
+    <div
+        class="admin-modal"
+        id="modalProduto"
+        hidden
+    >
+
+        <div
+            class="admin-modal-fundo"
+            id="fecharModalFundo"
+        >
+        </div>
+
+
+        <section class="admin-modal-card">
+
+            <header class="admin-modal-topo">
+
+                <div>
+
+                    <span id="modalSubtitulo">
+                        Catálogo
+                    </span>
+
+                    <h2 id="modalTitulo">
+                        Novo produto
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="admin-modal-fechar"
+                    id="botaoFecharModal"
+                    aria-label="Fechar"
+                >
+                    ✕
+                </button>
+
+            </header>
+
+
+            <form id="formProduto">
+
+
+                <input
+                    type="hidden"
+                    id="produtoIdAdmin"
+                >
+
+
+                <!-- NOME -->
+
+                <div class="campo">
+
+                    <label for="produtoNomeAdmin">
+                        Nome do produto *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="produtoNomeAdmin"
+                        placeholder="Ex.: Caneca Cerejas"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CATEGORIA + PREÇO -->
+
+                <div class="admin-grid-2">
+
+                    <div class="campo">
+
+                        <label for="produtoCategoriaAdmin">
+                            Categoria *
+                        </label>
+
+                        <select
+                            id="produtoCategoriaAdmin"
+                            required
+                        >
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="cestas">
+                                Cestas
+                            </option>
+
+                            <option value="canecas">
+                                Canecas
+                            </option>
+
+                            <option value="copos">
+                                Copos
+                            </option>
+
+                            <option value="lembrancas">
+                                Lembranças
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="produtoPrecoAdmin">
+                            Preço *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="produtoPrecoAdmin"
+                            min="0"
+                            step="0.01"
+                            placeholder="0,00"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DESCRIÇÃO CURTA -->
+
+                <div class="campo">
+
+                    <label for="produtoDescricaoCurtaAdmin">
+                        Descrição curta
+                    </label>
+
+                    <textarea
+                        id="produtoDescricaoCurtaAdmin"
+                        rows="2"
+                        maxlength="180"
+                        placeholder="Resumo que aparecerá no catálogo."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- DESCRIÇÃO -->
+
+                <div class="campo">
+
+                    <label for="produtoDescricaoAdmin">
+                        Descrição completa
+                    </label>
+
+                    <textarea
+                        id="produtoDescricaoAdmin"
+                        rows="5"
+                        placeholder="Detalhes do produto..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- ETIQUETA -->
+
+                <div class="campo">
+
+                    <label for="produtoEtiquetaAdmin">
+                        Etiqueta
+                    </label>
+
+                    <input
+                        type="text"
+                        id="produtoEtiquetaAdmin"
+                        placeholder="Ex.: Novidade"
+                    >
+
+                </div>
+
+
+
+                <!-- FOTOS -->
+
+                <div class="campo">
+
+                    <label for="produtoFotosAdmin">
+                        Fotos do produto
+                    </label>
+
+                    <div class="admin-upload">
+
+                        <input
+                            type="file"
+                            id="produtoFotosAdmin"
+                            accept="image/jpeg,image/png,image/webp"
+                            multiple
+                        >
+
+                        <div>
+
+                            <strong>
+                                Selecione as fotos
+                            </strong>
+
+                            <span>
+                                JPG, PNG ou WEBP
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="admin-preview-fotos"
+                        id="previewFotosAdmin"
+                    >
+                    </div>
+
+                </div>
+
+
+
+                <!-- OPÇÕES -->
+
+                <div class="admin-opcoes">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="produtoPersonalizavelAdmin"
+                        >
+
+                        <span>
+
+                            <strong>
+                                Personalizável
+                            </strong>
+
+                            <small>
+                                Permite personalização
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="produtoDestaqueAdmin"
+                        >
+
+                        <span>
+
+                            <strong>
+                                Destaque
+                            </strong>
+
+                            <small>
+                                Destacar no catálogo
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="produtoDisponivelAdmin"
+                            checked
+                        >
+
+                        <span>
+
+                            <strong>
+                                Disponível
+                            </strong>
+
+                            <small>
+                                Mostrar na loja
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- MENSAGEM -->
+
+                <div
+                    class="mensagem-form"
+                    id="mensagemProduto"
+                    hidden
+                >
+                </div>
+
+
+
+                <!-- AÇÕES -->
+
+                <div class="admin-modal-acoes">
+
+                    <button
+                        type="button"
+                        class="admin-botao admin-botao-secundario"
+                        id="botaoCancelarProduto"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="admin-botao admin-botao-principal"
+                        id="botaoSalvarProduto"
+                    >
+                        Salvar produto
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

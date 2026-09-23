@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Revise os produtos escolhidos e finalize seu pedido com a Déa Cestas."
+    >
+
+    <title>Carrinho | Déa Cestas</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="topo">
+
+        <div class="container topo-container">
+
+            <a
+                href="index.html"
+                class="marca"
+                aria-label="Voltar para a página inicial"
+            >
+                <img
+                    src="imagens/logo-dea-cestas.png"
+                    alt="Déa Cestas"
+                    class="logo"
+                >
+
+                <div class="marca-texto">
+                    <strong>Déa Cestas</strong>
+                    <span>Cestas • Lembranças • Personalizados</span>
+                </div>
+            </a>
+
+
+            <nav
+                class="menu"
+                id="menuPrincipal"
+            >
+                <a href="index.html">Início</a>
+                <a href="index.html#categorias">Categorias</a>
+                <a href="index.html#produtos">Produtos</a>
+                <a href="index.html#sobre">Sobre</a>
+            </nav>
+
+
+            <div class="acoes-topo">
+
+                <a
+                    href="carrinho.html"
+                    class="botao-carrinho"
+                    aria-label="Abrir carrinho"
+                >
+                    <span class="icone-carrinho">🛒</span>
+
+                    <span class="texto-carrinho">
+                        Carrinho
+                    </span>
+
+                    <span
+                        class="quantidade-carrinho"
+                        id="quantidadeCarrinho"
+                    >
+                        0
+                    </span>
+                </a>
+
+
+                <button
+                    type="button"
+                    class="botao-menu-mobile"
+                    id="botaoMenuMobile"
+                    aria-label="Abrir menu"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+    <main class="pagina-carrinho">
+
+        <section class="carrinho-secao">
+
+            <div class="container">
+
+                <a
+                    href="index.html#produtos"
+                    class="voltar-produtos"
+                >
+                    ← Continuar comprando
+                </a>
+
+
+                <div class="carrinho-cabecalho">
+
+                    <span>Seu pedido</span>
+
+                    <h1>
+                        Carrinho
+                    </h1>
+
+                    <p>
+                        Confira seus produtos antes de finalizar
+                        o pedido pelo WhatsApp.
+                    </p>
+
+                </div>
+
+
+                <!-- CARRINHO COM PRODUTOS -->
+                <div
+                    class="carrinho-layout"
+                    id="carrinhoConteudo"
+                    hidden
+                >
+
+                    <div
+                        class="carrinho-lista"
+                        id="listaCarrinho"
+                    >
+                    </div>
+
+
+                    <aside class="carrinho-resumo">
+
+                        <span class="carrinho-resumo-label">
+                            Resumo do pedido
+                        </span>
+
+                        <h2>
+                            Seu carrinho
+                        </h2>
+
+
+                        <div class="carrinho-resumo-linha">
+
+                            <span>
+                                Itens
+                            </span>
+
+                            <strong id="resumoQuantidade">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="carrinho-resumo-linha">
+
+                            <span>
+                                Subtotal
+                            </span>
+
+                            <strong id="resumoSubtotal">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="carrinho-resumo-aviso">
+
+                            <span>♡</span>
+
+                            <p>
+                                Personalizações, entrega e demais
+                                detalhes serão combinados durante
+                                o atendimento.
+                            </p>
+
+                        </div>
+
+
+                        <!-- DADOS DO CLIENTE -->
+                        <div class="carrinho-dados-cliente">
+
+                            <div class="carrinho-dados-titulo">
+                                <span>Seus dados</span>
+                                <p>
+                                    Preencha para identificarmos seu pedido.
+                                </p>
+                            </div>
+
+
+                            <div class="carrinho-campo">
+
+                                <label for="clienteNome">
+                                    Nome
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="clienteNome"
+                                    name="clienteNome"
+                                    placeholder="Digite seu nome"
+                                    autocomplete="name"
+                                    maxlength="100"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="carrinho-campo">
+
+                                <label for="clienteTelefone">
+                                    WhatsApp
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="clienteTelefone"
+                                    name="clienteTelefone"
+                                    placeholder="(21) 99999-9999"
+                                    autocomplete="tel"
+                                    inputmode="tel"
+                                    maxlength="20"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="carrinho-campo">
+
+                                <label for="clienteObservacoes">
+                                    Observações
+                                    <span>opcional</span>
+                                </label>
+
+                                <textarea
+                                    id="clienteObservacoes"
+                                    name="clienteObservacoes"
+                                    placeholder="Ex.: nome para personalização, data da entrega ou alguma observação..."
+                                    maxlength="500"
+                                    rows="3"
+                                ></textarea>
+
+                            </div>
+
+
+                            <p
+                                class="carrinho-mensagem"
+                                id="mensagemFinalizacao"
+                                aria-live="polite"
+                                hidden
+                            ></p>
+
+                        </div>
+
+
+                        <div class="carrinho-total">
+
+                            <span>
+                                Total dos produtos
+                            </span>
+
+                            <strong id="resumoTotal">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="botao botao-whatsapp carrinho-finalizar"
+                            id="finalizarWhatsApp"
+                        >
+                            Finalizar pelo WhatsApp
+                        </button>
+
+
+                        <a
+                            href="index.html#produtos"
+                            class="carrinho-continuar"
+                        >
+                            Continuar comprando
+                        </a>
+
+                    </aside>
+
+                </div>
+
+
+                <!-- CARRINHO VAZIO -->
+                <div
+                    class="carrinho-vazio"
+                    id="carrinhoVazio"
+                    hidden
+                >
+
+                    <div class="carrinho-vazio-icone">
+                        🛒
+                    </div>
+
+                    <span>
+                        Déa Cestas
+                    </span>
+
+                    <h2>
+                        Seu carrinho está vazio
+                    </h2>
+
+                    <p>
+                        Escolha um presente especial e ele
+                        aparecerá aqui para você finalizar
+                        seu pedido.
+                    </p>
+
+                    <a
+                        href="index.html#produtos"
+                        class="botao botao-principal"
+                    >
+                        Ver produtos
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- WHATSAPP -->
+    <section class="chamada-whatsapp">
+
+        <div class="container chamada-whatsapp-container">
+
+            <div>
+                <span>Atendimento personalizado</span>
+
+                <h2>
+                    Precisa de ajuda com seu pedido?
+                </h2>
+
+                <p>
+                    Fale com a Déa Cestas pelo WhatsApp para
+                    consultar personalizações, disponibilidade
+                    e detalhes da entrega.
+                </p>
+            </div>
+
+
+            <a
+                href="https://wa.me/5521991340051"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="botao botao-whatsapp"
+            >
+                Falar no WhatsApp
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <div class="container rodape-container">
+
+            <div class="rodape-marca">
+
+                <img
+                    src="imagens/logo-dea-cestas.png"
+                    alt="Déa Cestas"
+                >
+
+                <div>
+                    <strong>Déa Cestas</strong>
+                    <span>Presentes feitos para encantar</span>
+                </div>
+
+            </div>
+
+
+            <div class="rodape-links">
+
+                <a href="index.html">Início</a>
+                <a href="index.html#produtos">Produtos</a>
+                <a href="index.html#sobre">Sobre</a>
+
+                <a
+                    href="https://www.instagram.com/deacestas_lembrancas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="https://wa.me/5521991340051"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="rodape-final">
+
+            <div class="container">
+                <p>
+                    © 2026 Déa Cestas. Todos os direitos reservados.
+                </p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+
+    <!-- CARRINHO -->
+    <script src="js/carrinho.js"></script>
+
+</body>
+</html>

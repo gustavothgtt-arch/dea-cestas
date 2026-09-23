@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Confira os detalhes dos presentes personalizados da Déa Cestas."
+    >
+
+    <title>Produto | Déa Cestas</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="topo">
+
+        <div class="container topo-container">
+
+            <!-- MARCA -->
+
+            <a
+                href="index.html"
+                class="marca"
+                aria-label="Voltar para a página inicial"
+            >
+
+                <img
+                    src="imagens/logo-dea-cestas.png"
+                    alt="Déa Cestas"
+                    class="logo"
+                >
+
+                <div class="marca-texto">
+
+                    <strong>
+                        Déa Cestas
+                    </strong>
+
+                    <span>
+                        Cestas • Lembranças • Personalizados
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- MENU -->
+
+            <nav
+                class="menu"
+                id="menuPrincipal"
+            >
+
+                <a href="index.html">
+                    Início
+                </a>
+
+                <a href="index.html#categorias">
+                    Categorias
+                </a>
+
+                <a href="index.html#produtos">
+                    Produtos
+                </a>
+
+                <a href="index.html#sobre">
+                    Sobre
+                </a>
+
+            </nav>
+
+
+            <!-- AÇÕES -->
+
+            <div class="acoes-topo">
+
+                <a
+                    href="carrinho.html"
+                    class="botao-carrinho"
+                    aria-label="Abrir carrinho"
+                >
+
+                    <span class="icone-carrinho">
+                        🛒
+                    </span>
+
+                    <span class="texto-carrinho">
+                        Carrinho
+                    </span>
+
+                    <span
+                        class="quantidade-carrinho"
+                        id="quantidadeCarrinho"
+                    >
+                        0
+                    </span>
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="botao-menu-mobile"
+                    id="botaoMenuMobile"
+                    aria-label="Abrir menu"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="pagina-produto">
+
+
+        <!-- VOLTAR -->
+
+        <div class="container">
+
+            <a
+                href="index.html#produtos"
+                class="voltar-produtos"
+            >
+                ← Voltar para os produtos
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PRODUTO
+        ================================================== -->
+
+        <section
+            class="produto-detalhe"
+            id="produtoDetalhe"
+        >
+
+            <div class="container produto-detalhe-container">
+
+
+                <!-- =========================================
+                     GALERIA
+                ========================================== -->
+
+                <div class="produto-galeria">
+
+
+                    <!-- MINIATURAS -->
+
+                    <div
+                        class="produto-miniaturas"
+                        id="produtoMiniaturas"
+                    >
+                    </div>
+
+
+                    <!-- FOTO PRINCIPAL -->
+
+                    <div class="produto-galeria-principal">
+
+                        <img
+                            id="produtoImagemPrincipal"
+                            src="imagens/logo-dea-cestas.png"
+                            alt="Produto Déa Cestas"
+                        >
+
+                        <span
+                            class="produto-detalhe-etiqueta"
+                            id="produtoEtiqueta"
+                            hidden
+                        >
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     INFORMAÇÕES
+                ========================================== -->
+
+                <div class="produto-detalhe-info">
+
+
+                    <span
+                        class="produto-detalhe-categoria"
+                        id="produtoCategoria"
+                    >
+                        Déa Cestas
+                    </span>
+
+
+                    <h1 id="produtoNome">
+                        Carregando produto...
+                    </h1>
+
+
+                    <p
+                        class="produto-detalhe-descricao"
+                        id="produtoDescricao"
+                    >
+                        Aguarde enquanto carregamos as informações.
+                    </p>
+
+
+
+                    <!-- PREÇO -->
+
+                    <div class="produto-preco-area">
+
+                        <span>
+                            Valor
+                        </span>
+
+                        <strong id="produtoPreco">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+
+                    <!-- PERSONALIZAÇÃO -->
+
+                    <div
+                        class="produto-personalizacao"
+                        id="produtoPersonalizacao"
+                        hidden
+                    >
+
+                        <div class="produto-personalizacao-icone">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Produto personalizável
+                            </strong>
+
+                            <p>
+                                Os detalhes da personalização poderão
+                                ser combinados durante o atendimento.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="produto-quantidade-area">
+
+                        <span class="produto-campo-titulo">
+                            Quantidade
+                        </span>
+
+
+                        <div class="controle-quantidade">
+
+                            <button
+                                type="button"
+                                id="diminuirQuantidade"
+                                aria-label="Diminuir quantidade"
+                            >
+                                −
+                            </button>
+
+
+                            <span id="quantidadeProduto">
+                                1
+                            </span>
+
+
+                            <button
+                                type="button"
+                                id="aumentarQuantidade"
+                                aria-label="Aumentar quantidade"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- AÇÕES -->
+
+                    <div class="produto-acoes">
+
+                        <button
+                            type="button"
+                            class="botao botao-principal produto-adicionar"
+                            id="adicionarCarrinho"
+                        >
+                            🛒 Adicionar ao carrinho
+                        </button>
+
+
+                        <a
+                            href="https://wa.me/5521991340051"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="botao botao-secundario produto-whatsapp"
+                            id="comprarWhatsApp"
+                        >
+                            Falar pelo WhatsApp
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- INFORMAÇÕES EXTRAS -->
+
+                    <div class="produto-informacoes-extras">
+
+                        <div>
+
+                            <span class="produto-extra-icone">
+                                ♡
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Feito com carinho
+                                </strong>
+
+                                <p>
+                                    Cada pedido recebe atenção
+                                    especial em cada detalhe.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="produto-extra-icone">
+                                ✦
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Personalização
+                                </strong>
+
+                                <p>
+                                    Consulte as possibilidades
+                                    disponíveis para o seu presente.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PRODUTO NÃO ENCONTRADO
+        ================================================== -->
+
+        <section
+            class="produto-nao-encontrado"
+            id="produtoNaoEncontrado"
+            hidden
+        >
+
+            <div class="container">
+
+                <div class="produto-nao-encontrado-card">
+
+                    <div class="produto-nao-encontrado-icone">
+                        ✿
+                    </div>
+
+                    <span>
+                        Déa Cestas
+                    </span>
+
+                    <h1>
+                        Produto não encontrado
+                    </h1>
+
+                    <p>
+                        Esse produto pode não estar mais disponível
+                        ou o endereço acessado está incorreto.
+                    </p>
+
+                    <a
+                        href="index.html#produtos"
+                        class="botao botao-principal"
+                    >
+                        Ver produtos
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         WHATSAPP
+    ====================================================== -->
+
+    <section class="chamada-whatsapp">
+
+        <div class="container chamada-whatsapp-container">
+
+            <div>
+
+                <span>
+                    Atendimento personalizado
+                </span>
+
+                <h2>
+                    Ficou com alguma dúvida?
+                </h2>
+
+                <p>
+                    Fale com a Déa Cestas pelo WhatsApp e consulte
+                    personalizações, disponibilidade e detalhes
+                    para deixar seu presente ainda mais especial.
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://wa.me/5521991340051"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="botao botao-whatsapp"
+            >
+                Falar no WhatsApp
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer class="rodape">
+
+        <div class="container rodape-container">
+
+
+            <!-- MARCA -->
+
+            <div class="rodape-marca">
+
+                <img
+                    src="imagens/logo-dea-cestas.png"
+                    alt="Déa Cestas"
+                >
+
+                <div>
+
+                    <strong>
+                        Déa Cestas
+                    </strong>
+
+                    <span>
+                        Presentes feitos para encantar
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LINKS -->
+
+            <div class="rodape-links">
+
+                <a href="index.html">
+                    Início
+                </a>
+
+                <a href="index.html#produtos">
+                    Produtos
+                </a>
+
+                <a href="index.html#sobre">
+                    Sobre
+                </a>
+
+                <a
+                    href="https://www.instagram.com/deacestas_lembrancas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="https://wa.me/5521991340051"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="rodape-final">
+
+            <div class="container">
+
+                <p>
+                    © 2026 Déa Cestas. Todos os direitos reservados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+
+    <!-- Produtos e página de detalhes -->
+    <script src="js/produtos.js"></script>
+    <script src="js/produto.js"></script>
+
+</body>
+
+</html>
