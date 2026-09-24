@@ -5260,3 +5260,34 @@ button {
     }
 
 }
+
+
+/* =========================================================
+   CORREÇÃO MOBILE - TÍTULOS DAS CATEGORIAS
+   Impede Safari/iPhone de aplicar azul padrão aos botões
+========================================================= */
+
+.categoria-card,
+.categoria-card:link,
+.categoria-card:visited,
+.categoria-card:hover,
+.categoria-card:active,
+.categoria-card:focus {
+    color: var(--cor-texto);
+    -webkit-text-fill-color: var(--cor-texto);
+}
+
+.categoria-card h3 {
+    color: var(--cor-texto);
+    -webkit-text-fill-color: var(--cor-texto);
+}
+
+.categoria-card p {
+    color: var(--cor-texto-suave);
+    -webkit-text-fill-color: var(--cor-texto-suave);
+}
+
+.categoria-card .categoria-seta {
+    color: var(--cor-rosa-escuro);
+    -webkit-text-fill-color: var(--cor-rosa-escuro);
+}
