@@ -5291,3 +5291,238 @@ button {
     color: var(--cor-rosa-escuro);
     -webkit-text-fill-color: var(--cor-rosa-escuro);
 }
+
+/* =========================================================
+   28. HERO MOBILE - TEXTO E LOGO LADO A LADO
+   Mantém o conceito visual do desktop no celular
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-container {
+        display: grid;
+        grid-template-columns: minmax(0, 1.18fr) minmax(125px, 0.82fr);
+        align-items: center;
+        gap: 12px;
+
+        padding-top: 42px;
+        padding-bottom: 46px;
+    }
+
+    .hero-conteudo {
+        width: 100%;
+        max-width: none;
+        text-align: left;
+    }
+
+    .hero-etiqueta {
+        margin-bottom: 13px;
+        padding: 7px 10px;
+
+        font-size: 8px;
+        line-height: 1.25;
+        letter-spacing: 0.8px;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        margin: 0;
+
+        font-size: clamp(30px, 8.1vw, 43px);
+        line-height: 1.01;
+        letter-spacing: -1.3px;
+    }
+
+    .hero-conteudo > p {
+        max-width: 100%;
+        margin: 14px 0 0;
+
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+    .hero-botoes {
+        width: 100%;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 8px;
+        margin-top: 18px;
+    }
+
+    .hero-botoes .botao {
+        width: 100%;
+        min-height: 42px;
+        padding: 0 12px;
+
+        font-size: 10px;
+    }
+
+    .hero-beneficios {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        justify-content: flex-start;
+        gap: 7px;
+
+        max-width: none;
+        margin: 18px 0 0;
+
+        text-align: left;
+    }
+
+    .hero-beneficios div {
+        gap: 7px;
+        font-size: 9px;
+        line-height: 1.25;
+    }
+
+    .hero-beneficios strong {
+        flex: 0 0 auto;
+
+        width: 25px;
+        height: 25px;
+
+        font-size: 9px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        min-width: 0;
+        min-height: 270px;
+
+        align-self: center;
+    }
+
+    .hero-forma-1 {
+        width: min(190px, 43vw);
+        height: min(190px, 43vw);
+    }
+
+    .hero-forma-2 {
+        width: min(160px, 36vw);
+        height: min(160px, 36vw);
+
+        transform: translate(16px, -14px);
+    }
+
+    .hero-logo-container {
+        width: min(150px, 34vw);
+        height: min(150px, 34vw);
+
+        padding: 8px;
+    }
+
+    .detalhe-floral {
+        font-size: 17px;
+    }
+
+    .detalhe-1 {
+        top: 34px;
+        right: 0;
+    }
+
+    .detalhe-2 {
+        bottom: 35px;
+        left: 0;
+    }
+}
+
+
+/* CELULARES MENORES */
+
+@media (max-width: 480px) {
+
+    .hero-container {
+        grid-template-columns: minmax(0, 1.16fr) minmax(115px, 0.84fr);
+        gap: 8px;
+
+        padding-top: 34px;
+        padding-bottom: 38px;
+    }
+
+    .hero-etiqueta {
+        max-width: 100%;
+        margin-bottom: 11px;
+
+        padding: 6px 8px;
+
+        font-size: 7px;
+        letter-spacing: 0.65px;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 8vw, 36px);
+        letter-spacing: -1px;
+    }
+
+    .hero-conteudo > p {
+        margin-top: 12px;
+
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .hero-botoes {
+        margin-top: 15px;
+        gap: 7px;
+    }
+
+    .hero-botoes .botao {
+        min-height: 39px;
+
+        padding: 0 9px;
+
+        font-size: 9px;
+    }
+
+    .hero-beneficios {
+        gap: 6px;
+
+        margin-top: 15px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero-beneficios div {
+        font-size: 8px;
+    }
+
+    .hero-beneficios strong {
+        width: 23px;
+        height: 23px;
+    }
+
+    .hero-visual {
+        min-height: 235px;
+    }
+
+    .hero-forma-1 {
+        width: min(165px, 42vw);
+        height: min(165px, 42vw);
+    }
+
+    .hero-forma-2 {
+        width: min(140px, 35vw);
+        height: min(140px, 35vw);
+
+        transform: translate(13px, -12px);
+    }
+
+    .hero-logo-container {
+        width: min(132px, 33vw);
+        height: min(132px, 33vw);
+
+        padding: 7px;
+    }
+
+    .detalhe-floral {
+        font-size: 15px;
+    }
+}
+
