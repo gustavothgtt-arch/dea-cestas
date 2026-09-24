@@ -5596,3 +5596,81 @@ button {
     }
 }
 
+/* =========================================================
+   30. HERO MOBILE - BENEFÍCIOS REFINADOS
+   Três colunas com ícone acima e texto abaixo
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-beneficios {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+
+        width: 100%;
+        max-width: none;
+
+        gap: 12px;
+        margin: 22px 0 0;
+    }
+
+    .hero-beneficios div {
+        min-width: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        gap: 7px;
+
+        text-align: center;
+        white-space: normal;
+
+        font-size: 8px;
+        line-height: 1.25;
+    }
+
+    .hero-beneficios strong {
+        flex: 0 0 auto;
+
+        width: 25px;
+        height: 25px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 8px;
+    }
+}
+
+
+/* CELULARES MENORES */
+
+@media (max-width: 480px) {
+
+    .hero-beneficios {
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .hero-beneficios div {
+        gap: 6px;
+
+        padding: 0 2px;
+
+        font-size: 7.5px;
+        line-height: 1.22;
+        letter-spacing: 0;
+    }
+
+    .hero-beneficios strong {
+        width: 24px;
+        height: 24px;
+
+        font-size: 8px;
+    }
+}
+
