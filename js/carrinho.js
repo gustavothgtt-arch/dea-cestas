@@ -322,13 +322,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
 
         const linhas = [
-            "Olá! Vim pelo site da Déa Cestas.",
+            "Olá! Vim pelo site da Déa Cestas 🌷",
             "",
-            `Pedido: ${pedido.numero_pedido}`,
-            `Cliente: ${dadosCliente.nome}`,
-            `WhatsApp: ${dadosCliente.telefone}`,
-            "",
-            "Gostaria de finalizar este pedido:",
+            `*Pedido ${pedido.numero_pedido}*`,
+            `👤 ${dadosCliente.nome}`,
+            `📱 ${dadosCliente.telefone}`,
             ""
         ];
 
@@ -345,19 +343,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 preco * quantidade;
 
 
-            linhas.push(
-                `${indice + 1}. ${item.nome}`,
-                `Quantidade: ${quantidade}`,
-                `Valor unitário: ${formatarPreco(preco)}`,
-                `Subtotal: ${formatarPreco(subtotal)}`,
-                ""
-            );
+            if (carrinho.length > 1) {
+
+                linhas.push(
+                    `*${indice + 1}. ${item.nome}*`,
+                    `${quantidade} un. × ${formatarPreco(preco)}`,
+                    `Subtotal: ${formatarPreco(subtotal)}`,
+                    ""
+                );
+
+            } else {
+
+                linhas.push(
+                    `*${item.nome}*`,
+                    `${quantidade} un. × ${formatarPreco(preco)}`,
+                    ""
+                );
+
+            }
 
         });
 
 
         linhas.push(
-            `Total dos produtos: ${formatarPreco(pedido.total)}`,
+            `*Total: ${formatarPreco(pedido.total)}*`,
             ""
         );
 
@@ -365,7 +374,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (dadosCliente.observacoes) {
 
             linhas.push(
-                `Observações: ${dadosCliente.observacoes}`,
+                "📝 *Observação:*",
+                dadosCliente.observacoes,
                 ""
             );
 
@@ -379,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (linkPedido) {
 
             linhas.push(
-                "Ver pedido completo:",
+                "🔗 *Ver pedido completo:*",
                 linkPedido,
                 ""
             );
@@ -388,7 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         linhas.push(
-            "Gostaria de combinar os detalhes do pedido, personalização e entrega."
+            "Gostaria de combinar os detalhes do pedido, personalização e entrega. 😊"
         );
 
 
