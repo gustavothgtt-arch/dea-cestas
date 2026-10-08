@@ -313,14 +313,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         /* Usa a própria foto também como fundo do quadro.
            A foto real fica inteira por cima, sem corte. */
-        const fotoFundo =
-            String(fotoProduto)
-                .replace(/\/g, "\\")
-                .replace(/"/g, '\"');
-
         areaImagem.style.setProperty(
             "--produto-foto",
-            `url("${fotoFundo}")`
+            `url("${fotoProduto}")`
         );
 
 
