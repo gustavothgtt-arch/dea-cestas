@@ -155,8 +155,7 @@ button {
     width: 62px;
     height: 62px;
 
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
     border-radius: 50%;
 
     border: 2px solid var(--cor-rosa-claro);
@@ -2708,7 +2707,7 @@ button {
     width: 100%;
     height: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
 
     border-radius: 9px;
 }
@@ -2741,7 +2740,7 @@ button {
     width: 100%;
     height: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
 
     border-radius: 0;
 }
@@ -3242,7 +3241,7 @@ button {
         width: 100%;
         height: 100%;
 
-        object-fit: contain;
+        object-fit: cover;
 
         border-radius: 0;
     }
@@ -3456,33 +3455,25 @@ button {
 .produto-imagem {
     position: relative;
     width: 100%;
-    height: auto;
-    aspect-ratio: auto;
-
+    aspect-ratio: 1 / 1;
     background:
         linear-gradient(
             145deg,
             var(--cor-branco),
             var(--cor-fundo-secundario)
         );
-
     overflow: hidden;
 }
 
 .produto-imagem img {
-    display: block;
-
     width: 100%;
-    height: auto;
-
-    object-fit: unset;
-    object-position: center;
-
-    transition: none;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
 }
 
 .produto-card:hover .produto-imagem img {
-    transform: none;
+    transform: scale(1.035);
 }
 
 .produto-etiqueta {
@@ -3603,6 +3594,10 @@ button {
 
     .produto-card {
         border-radius: 15px;
+    }
+
+    .produto-imagem {
+        aspect-ratio: 1 / 1.05;
     }
 
     .produto-etiqueta {
@@ -3733,7 +3728,7 @@ button {
         height: 100% !important;
         max-width: none !important;
 
-        object-fit: contain;
+        object-fit: cover;
 
         margin: 0;
         padding: 0;
@@ -3765,7 +3760,7 @@ button {
         width: 100%;
         height: 100%;
 
-        object-fit: contain;
+        object-fit: cover;
     }
 
     /* Com apenas uma foto não há necessidade de miniatura. */
@@ -3831,7 +3826,7 @@ button {
         width: 100%;
         height: 100%;
         display: block;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     .produto-detalhe-etiqueta {
@@ -4012,6 +4007,10 @@ button {
         border-radius: 16px;
     }
 
+    .produto-imagem {
+        aspect-ratio: 1 / 0.92;
+    }
+
     .produto-etiqueta {
         top: 11px;
         left: 11px;
@@ -4105,6 +4104,10 @@ button {
 
     .produto-card {
         max-width: none;
+    }
+
+    .produto-imagem {
+        aspect-ratio: 1 / 0.95;
     }
 
     .produto-info {
@@ -4253,7 +4256,7 @@ button {
     width: 100%;
     height: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .carrinho-item-info {
@@ -5671,26 +5674,68 @@ button {
     }
 }
 
+
 /* =========================================================
-   31. FOTOS DOS PRODUTOS - PROPORÇÃO ORIGINAL SEM CORTES
+   31. FOTOS DOS PRODUTOS - INTEIRAS, SEM CORTE
+   Fundo com a própria foto para preencher todo o quadro
    Desktop + Tablet + Mobile
 ========================================================= */
 
 .produto-imagem {
+    position: relative !important;
     width: 100% !important;
-    height: auto !important;
-    aspect-ratio: auto !important;
-    overflow: hidden;
-    background: var(--cor-fundo-secundario);
+    aspect-ratio: 1 / 1 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+    background: var(--cor-fundo-secundario) !important;
 }
 
-.produto-imagem img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100% !important;
+.produto-imagem::before {
+    content: "";
 
-    object-fit: unset !important;
+    position: absolute;
+    inset: -16px;
+
+    background-image: var(--produto-foto);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    filter: blur(14px);
+    transform: scale(1.08);
+    opacity: 0.42;
+
+    pointer-events: none;
+}
+
+.produto-imagem::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255, 250, 248, 0.34);
+
+    pointer-events: none;
+}
+
+.produto-imagem > img {
+    position: relative;
+    z-index: 1;
+
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: contain !important;
     object-position: center !important;
 
     margin: 0 !important;
@@ -5699,16 +5744,46 @@ button {
     transform: none !important;
 }
 
-.produto-card:hover .produto-imagem img {
+.produto-card:hover .produto-imagem > img {
     transform: none !important;
 }
 
-/* Página individual do produto: mostrar a imagem inteira */
+.produto-imagem .produto-etiqueta {
+    z-index: 3 !important;
+}
+
+.produto-galeria-principal {
+    background: var(--cor-fundo-secundario) !important;
+}
+
 .produto-galeria-principal img,
-#produtoImagemPrincipal,
-.produto-miniatura img,
+#produtoImagemPrincipal {
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+.produto-miniatura img {
+    object-fit: contain !important;
+    object-position: center !important;
+    background: var(--cor-fundo-secundario);
+}
+
 .carrinho-item-imagem img {
     object-fit: contain !important;
     object-position: center !important;
+    background: var(--cor-fundo-secundario);
+}
+
+@media (max-width: 768px) {
+
+    .produto-imagem {
+        aspect-ratio: 1 / 1 !important;
+    }
+
+    .produto-imagem::before {
+        inset: -12px;
+        filter: blur(12px);
+        opacity: 0.40;
+    }
 }
 
