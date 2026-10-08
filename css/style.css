@@ -2707,7 +2707,10 @@ button {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+
+    background: var(--cor-fundo-secundario);
 
     border-radius: 9px;
 }
@@ -2740,7 +2743,10 @@ button {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+
+    background: var(--cor-fundo-secundario);
 
     border-radius: 0;
 }
@@ -3241,7 +3247,10 @@ button {
         width: 100%;
         height: 100%;
 
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+
+        background: var(--cor-fundo-secundario);
 
         border-radius: 0;
     }
@@ -3468,12 +3477,17 @@ button {
 .produto-imagem img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: var(--cor-fundo-secundario);
+
     transition: transform 0.35s ease;
 }
 
 .produto-card:hover .produto-imagem img {
-    transform: scale(1.035);
+    transform: none;
 }
 
 .produto-etiqueta {
@@ -3728,7 +3742,10 @@ button {
         height: 100% !important;
         max-width: none !important;
 
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+
+        background: var(--cor-fundo-secundario);
 
         margin: 0;
         padding: 0;
@@ -3760,7 +3777,10 @@ button {
         width: 100%;
         height: 100%;
 
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+
+        background: var(--cor-fundo-secundario);
     }
 
     /* Com apenas uma foto não há necessidade de miniatura. */
@@ -3826,7 +3846,11 @@ button {
         width: 100%;
         height: 100%;
         display: block;
-        object-fit: cover;
+
+        object-fit: contain;
+        object-position: center;
+
+        background: var(--cor-fundo-secundario);
     }
 
     .produto-detalhe-etiqueta {
@@ -4256,7 +4280,10 @@ button {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+
+    background: var(--cor-fundo-secundario);
 }
 
 .carrinho-item-info {
